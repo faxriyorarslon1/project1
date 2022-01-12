@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Davomat</title>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h1>Talabalar davomati</h1>
+<form action="" method="post">
+    {{form }}
+</form>
+<table id="customers">
+
+    <tr>
+        <th>Ism</th>
+        <th>Familya</th>
+        <th>Davomat</th>
+        <th>Sana</th>
+    </tr>
+{% for talaba in talabalar %}
+    <tr>
+        <td>{{ talaba.name }}</td>
+        <td>{{ talaba.surname }}</td>
+        {% if talaba.status %}
+            <td style="text-align: center;">+</td>
+        {% else %}
+            <td style="text-align: center;">-</td>
+        {% endif %}
+        <td>{{ talaba.date.sana }}</td>
+        <!-- <td>{{ talaba.status }}</td> -->
+    </tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
